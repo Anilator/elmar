@@ -63,3 +63,11 @@ function checkForMobile() {
         G.isMobile = window.innerWidth < 768 ? true : false;
     });
 }
+
+
+function getPictures() {
+    $.get('http://api-fotki.yandex.ru/api/users/disturh/album/547654/photos/', function (data) {
+        console.log(data);
+    })
+}
+

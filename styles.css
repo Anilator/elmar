@@ -325,7 +325,7 @@
         .nav__item {
             border-radius: 2px;
             box-shadow: 0 7px 30px -11px,
-                inset 0 -10px 30px -4px #fff;
+                inset 0 -18px 30px -15px #fff;
             cursor: pointer;
         }
         .nav__item:hover,

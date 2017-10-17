@@ -19,7 +19,7 @@ h1{font-size:64px;line-height:72px;text-align:left;text-transform:uppercase}a{co
 @media screen and (max-width:767px){.menu-opened .menu__content{position:fixed;left:0;right:0;z-index:2;margin-top:4px;text-align:center;background:#eee}
 .menu-opened .menu__content>.header__item{display:block;width:100%}.menu-opened .menu__closer{position:fixed;bottom:0;left:0;right:0;top:0;z-index:1;background:rgba(255,255,255,.5)}
 .menu-opened .nav__item{display:block;padding:16px}.menu-opened .nav__item:before{content:none}}@media screen and (min-width:768px){.menu__btn{display:none}
-}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}@media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -10px 30px -4px #fff;cursor:pointer}
+}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}@media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -18px 30px -15px #fff;cursor:pointer}
 .nav__item:hover,.nav__item-active{color:#000;box-shadow:none}.nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;text-indent:100%;white-space:nowrap;transition:all .2s}
 .contacts__link:before{position:absolute;top:16px;left:16px;color:#eee;text-indent:0;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
 .gallery{box-sizing:border-box;height:100vh;padding:72px 0 8px;text-align:center}.gallery__room{display:inline-block;vertical-align:middle}.mini{height:100%}
