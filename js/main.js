@@ -65,9 +65,20 @@ function checkForMobile() {
 }
 
 
-function getPictures() {
-    $.get('http://api-fotki.yandex.ru/api/users/disturh/album/547654/photos/', function (data) {
-        console.log(data);
-    })
-}
 
+$.getJSON(
+    "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+    {
+        id: "114748495@N06",
+        format: "json",
+        tags: 'Rose'
+    },
+    handle
+);
+function handle(data) {
+    console.log(data);
+
+    var $description = $(data.items[0].description).last();
+
+    $('.gallery__room.mini').html($description);
+}
