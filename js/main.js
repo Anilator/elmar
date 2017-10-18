@@ -67,18 +67,16 @@ function checkForMobile() {
 
 
 $.getJSON(
-    "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+    "https://www.googleapis.com/blogger/v3/blogs/2162001888846871697/posts",
     {
-        id: "114748495@N06",
-        format: "json",
-        tags: 'Rose'
+        key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
     },
     handle
 );
 function handle(data) {
     console.log(data);
 
-    var $description = $(data.items[0].description).last();
+    var $description = $(data.items[0].content);
 
     $('.gallery__room.mini').html($description);
 }
