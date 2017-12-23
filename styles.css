@@ -276,6 +276,7 @@
 
         .menu__content {
             display: none;
+            overflow: auto;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -284,12 +285,21 @@
             z-index: 2;
             padding-top: 64px;
             text-align: center;
-            background: #eee;
         }
         .menu__content:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: -80px;
+            background: #eee;
+            transform: translateY(80px);
+        }
+        .menu__content:after {
             font-family: 'icons';
             content: "\ea0f";
-            position: absolute;
+            position: fixed;
             right: 16px;
             top: 22px;
             color: #fff;
@@ -309,7 +319,7 @@
         .nav__item:before { content: none; }
 
         .menu__content .contacts {
-            margin-top: 40px;
+            margin-top: 20px;
         }
     }
     @media screen and (min-width: 768px) {
