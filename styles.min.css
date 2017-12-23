@@ -1,7 +1,7 @@
-html{font-size:100%;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent;-webkit-text-decoration-skip:objects}
-a:focus{outline:thin dotted}a:active,a:hover{outline:0}b,strong{font-weight:inherit}b,strong{font-weight:bolder}menu,ol,ul{padding:0;list-style:none;list-style-image:none}
-img{border:0;border-style:none;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}
-button,input,select,textarea{overflow:visible;font-size:100%;margin:0;line-height:normal;text-transform:none;vertical-align:baseline;*vertical-align:middle}
+html{font-size:100%;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{margin:0}
+a{background-color:transparent;-webkit-text-decoration-skip:objects}a:focus{outline:thin dotted}a:active,a:hover{outline:0}b,strong{font-weight:inherit}
+b,strong{font-weight:bolder}menu,ol,ul{padding:0;list-style:none;list-style-image:none}img{border:0;border-style:none;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{overflow:visible;font-size:100%;margin:0;line-height:normal;text-transform:none;vertical-align:baseline;*vertical-align:middle}
 button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}
 button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;border-style:none;padding:0;outline:1px dotted ButtonText}
 input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
