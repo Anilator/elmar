@@ -5,50 +5,53 @@
     <title>Elmar Ipskamp</title>
     <meta name="description" content="Elmar Ipskamp">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
     <link rel="stylesheet" href="styles.min.css">
     <!-- <script src="https://unpkg.com/vue"></script> -->
 </head>
 <body>
     <div class="app">
-        <div class="header">
-            <h1 class="header__item logo">ELM</h1>
-            <div class="header__item menu">
-                <div class="menu__btn icon icon-menu" id="menu__btn"></div>
-                <div class="menu__content" id="menu__content">
-                    <div class="header__item nav">
-                        <div class="nav__item nav__item-active" data-page="drawings">Drawings</div>
-                        <div class="nav__item" data-page="paintings">Paintings</div>
-                        <div class="nav__item" data-page="about">About</div>
+        <div class="layout">
+            <div class="header">
+                <h1 class="header__item logo">ELM</h1>
+                <div class="header__item menu">
+                    <div class="menu__btn icon icon-menu" id="menu__btn"></div>
+                    <div class="menu__content" id="menu__content">
+                        <div class="header__item nav">
+                            <div class="nav__item nav__item-active" data-page="drawings">Drawings</div>
+                            <div class="nav__item" data-page="paintings">Paintings</div>
+                            <div class="nav__item" data-page="about">About</div>
+                        </div>
+                        <div class="header__item contacts">
+                            <a href="https://www.facebook.com/elmar.ipskamp" class="contacts__link icon icon-facebook">facebook</a>
+                            <a href="https://www.instagram.com/elmaripskamp/" class="contacts__link icon icon-instagram">instagram</a>
+                            <a href="mailto:elmaripskamp@gmail.com" class="contacts__link icon icon-letter">send an email message</a>
+                        </div>
                     </div>
-                    <div class="header__item contacts">
-                        <a href="https://www.facebook.com/elmar.ipskamp" class="contacts__link icon icon-facebook">facebook</a>
-                        <a href="https://www.instagram.com/elmaripskamp/" class="contacts__link icon icon-instagram">instagram</a>
-                        <a href="mailto:elmaripskamp@gmail.com" class="contacts__link icon icon-letter">send an email message</a>
-                    </div>
+                    <script>
+                        (function menuInit() {
+                            var menu = document.getElementById('menu__content');
+                            var btn = document.getElementById('menu__btn')
+
+                            btn.addEventListener('click', menuOpen);
+                            menu.addEventListener('click', menuClose);
+
+                            function menuOpen() {
+                                menu.style.display = 'block';
+                            }
+
+                            function menuClose() {
+                                menu.style.display = '';
+                            }
+                        })();
+                    </script>
                 </div>
-                <script>
-                    (function menuInit() {
-                        var menu = document.getElementById('menu__content');
-                        var btn = document.getElementById('menu__btn')
-
-                        btn.addEventListener('click', menuOpen);
-                        menu.addEventListener('click', menuClose);
-
-                        function menuOpen() {
-                            menu.style.display = 'block';
-                        }
-
-                        function menuClose() {
-                            menu.style.display = '';
-                        }
-                    })();
-                </script>
             </div>
-        </div>
-        <div class="gallery">
-            <div class="gallery__room mini"></div>
-            <!-- <div class="gallery__room large"></div> -->
+            <div class="gallery">
+                <div class="gallery__room mini"></div>
+                <!-- <div class="gallery__room large"></div> -->
+            </div>
         </div>
     </div>
 

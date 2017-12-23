@@ -409,9 +409,14 @@
 
 html, body, .app { height: 100%; }
 .app {
+    position: relative;
+}
+.layout {
+    height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
+
 .large { width: 48%; }
 .gallery__room { display: inline-block; }
 
