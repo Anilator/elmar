@@ -1,5 +1,8 @@
 /*** NORMALIZATION *** ( github.com/necolas/normalize.css )
     ========================================================================== */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
     html {
         font-size: 100%;
         line-height: 1.15;
@@ -398,6 +401,7 @@
 
     .mini {
         height: 100%;
+        width: 50%;
     }
     .large {
         width: 90%;
@@ -414,3 +418,18 @@
             max-height: 90vh;
         }
     }
+
+
+
+
+
+html, body, .app { height: 100%; }
+.app { overflow: hidden; }
+.gallery { height: 100%; }
+.mini {  overflow: auto; -webkit-overflow-scrolling: touch }
+.large { width: 48%; }
+.gallery__room { display: inline-block; }
+.header { position: absolute; }
+
+
+
