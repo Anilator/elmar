@@ -75,9 +75,13 @@ function getData() {
                 srcOrig: imgSrcOriginal,
             };
 
-            var label = post.labels;
-            if (label) {
-                label = label[0];
+            var labels = post.labels;
+            if (labels) {
+                label = labels[0];
+                if (label[0] == '#') {
+                    G.background = label;
+                    label = labels[1];
+                }
 
                 // debugger;
                 G.works[label] = G.works[label] ? G.works[label] : [];
@@ -94,7 +98,7 @@ function getData() {
         });
 
 
-        $('.gallery__room.mini').html(content);
+        $('.gallery__room.mini').html(content).css('background', G.background);
     }
 }
 
