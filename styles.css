@@ -292,9 +292,11 @@
             bottom: 0;
             left: 0;
             right: 0;
-            top: -80px;
+            top: -100px;
             background: #eee;
-            transform: translateY(80px);
+
+            -webkit-transform: translateY(100px);
+            transform: translateY(100px);
         }
         .menu__content:after {
             font-family: 'icons';
