@@ -23,5 +23,5 @@ a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{min-width:320px}.
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
 .gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.mini{height:100%;width:100%}.large{width:90%}.large__img{max-width:100%}
-@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}html,body,.app{height:100%}.app{position:relative}.layout{height:100%;overflow:auto;-webkit-overflow-scrolling:touch}
-.large{width:48%}.gallery__room{display:inline-block}
+@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}html,body,.app{height:100%}.app{position:relative}.header{position:absolute;left:100%;width:192px;bottom:0;top:0}
+.gallery{height:100%;width:100%;margin-right:192px;overflow:auto;-webkit-overflow-scrolling:touch}.menu__content{display:block}.menu__content:after{content:none}
