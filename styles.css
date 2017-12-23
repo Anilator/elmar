@@ -288,18 +288,7 @@
             z-index: 2;
             padding-top: 64px;
             text-align: center;
-        }
-        .menu__content:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: -100px;
             background: #eee;
-
-            -webkit-transform: translateY(100px);
-            transform: translateY(100px);
         }
         .menu__content:after {
             font-family: 'icons';
@@ -401,7 +390,7 @@
 
     .mini {
         height: 100%;
-        width: 50%;
+        width: 100%;
     }
     .large {
         width: 90%;
@@ -424,9 +413,12 @@
 
 
 html, body, .app { height: 100%; }
-.app { position: fixed; top: 0; left: 0; right: 0; overflow: hidden; }
-.gallery { height: 100%; }
-.mini {  overflow: auto; -webkit-overflow-scrolling: touch }
+.app {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
 .large { width: 48%; }
 .gallery__room { display: inline-block; }
 .header { position: absolute; }
