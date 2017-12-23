@@ -215,10 +215,6 @@
     }
 
     .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
         text-align: center;
         background: #eee;
     }
@@ -259,7 +255,6 @@
     }
     @media screen and (max-width: 767px) {
         .header {
-            position: static;
         }
         .logo {
             text-align: center;
@@ -267,7 +262,7 @@
         }
 
         .menu__btn {
-            position: fixed;
+            position: absolute;
             right: 8px;
             top: 16px;
 
@@ -280,20 +275,20 @@
         .menu__content {
             display: none;
             overflow: auto;
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             top: 0;
             z-index: 2;
-            padding-top: 64px;
+            padding-top: 40px;
             text-align: center;
             background: #eee;
         }
         .menu__content:after {
             font-family: 'icons';
             content: "\ea0f";
-            position: fixed;
+            position: absolute;
             right: 16px;
             top: 22px;
             color: #fff;
@@ -400,7 +395,7 @@
     }
     @media screen and (min-width: 768px) {
         .gallery {
-            padding: 72px 0 8px;
+            /*padding: 72px 0 8px;*/
         }
         .large__img {
             max-width: 100%;
@@ -414,14 +409,11 @@
 
 html, body, .app { height: 100%; }
 .app {
-    position: fixed;
-    top: 0; left: 0; right: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
 .large { width: 48%; }
 .gallery__room { display: inline-block; }
-.header { position: absolute; }
 
 
 

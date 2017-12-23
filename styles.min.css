@@ -11,17 +11,17 @@ input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*heig
 .icon-instagram:before{content:"\ea92"}.icon-facebook:before{content:"\f09a"}.icon-letter:before{content:"\f003"}
 .icon-cross:before{content:"\ea0f"}.icon-menu:before{content:"\e901"}html,button,input,select,textarea{color:#333;font-family:'Raleway',sans-serif;font-size:16px;background:#eee}
 h1,h2,h3,h4,h5,h6{margin:0;font-weight:normal}h1{font-size:64px;line-height:72px;text-align:left;text-transform:uppercase}a{color:#555;text-decoration:none}
-a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{min-width:320px}.header{position:fixed;top:0;left:0;right:0;text-align:center;background:#eee}
-.header__item{display:inline-block;width:48%;vertical-align:middle}.header__item.menu{text-align:right}.header__item.nav,.header__item.contacts{display:none}
-@media screen and (min-width:768px){.header__item.logo{width:20%}.header__item.menu__btn{display:none}.header__item.menu{width:78%;text-align:right}.header__item.nav{display:inline-block;width:64%;text-align:center}
-.header__item.contacts{display:inline-block;width:34%}}.menu{user-select:none;-webkit-user-select:none}@media screen and (max-width:767px){.header{position:static}
-.logo{text-align:center;width:100%}.menu__btn{position:fixed;right:8px;top:16px;color:#fff;font-size:40px;text-align:center;text-shadow:0 1px 1px #555}
-.menu__content{display:none;overflow:auto;position:fixed;bottom:0;left:0;right:0;top:0;z-index:2;padding-top:64px;text-align:center;background:#eee}.menu__content:after{font-family:'icons';content:"\ea0f";position:fixed;right:16px;top:22px;color:#fff;font-size:24px;text-shadow:0 1px 1px #555}
+a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{min-width:320px}.header{text-align:center;background:#eee}.header__item{display:inline-block;width:48%;vertical-align:middle}
+.header__item.menu{text-align:right}.header__item.nav,.header__item.contacts{display:none}@media screen and (min-width:768px){.header__item.logo{width:20%}
+.header__item.menu__btn{display:none}.header__item.menu{width:78%;text-align:right}.header__item.nav{display:inline-block;width:64%;text-align:center}
+.header__item.contacts{display:inline-block;width:34%}}.menu{user-select:none;-webkit-user-select:none}@media screen and (max-width:767px){.logo{text-align:center;width:100%}
+.menu__btn{position:absolute;right:8px;top:16px;color:#fff;font-size:40px;text-align:center;text-shadow:0 1px 1px #555}.menu__content{display:none;overflow:auto;position:absolute;bottom:0;left:0;right:0;top:0;z-index:2;padding-top:40px;text-align:center;background:#eee}
+.menu__content:after{font-family:'icons';content:"\ea0f";position:absolute;right:16px;top:22px;color:#fff;font-size:24px;text-shadow:0 1px 1px #555}
 .menu__content .header__item{display:block;width:100%}.menu__content .nav__item{display:block;padding:16px;font-size:24px}.nav__item:before{content:none}
 .menu__content .contacts{margin-top:20px}}@media screen and (min-width:768px){.menu__btn{display:none}}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}
 @media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -18px 30px -15px #fff;cursor:pointer}.nav__item:hover,.nav__item-active{color:#000;box-shadow:none}
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
 .gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.mini{height:100%;width:100%}.large{width:90%}.large__img{max-width:100%}
-@media screen and (min-width:768px){.gallery{padding:72px 0 8px}.large__img{max-width:100%;max-height:90vh}}html,body,.app{height:100%}.app{position:fixed;top:0;left:0;right:0;overflow:auto;-webkit-overflow-scrolling:touch}
-.large{width:48%}.gallery__room{display:inline-block}.header{position:absolute}
+@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}html,body,.app{height:100%}.app{overflow:auto;-webkit-overflow-scrolling:touch}
+.large{width:48%}.gallery__room{display:inline-block}
