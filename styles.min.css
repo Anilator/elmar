@@ -22,5 +22,5 @@ a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{min-width:320px}.
 @media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -18px 30px -15px #fff;cursor:pointer}.nav__item:hover,.nav__item-active{color:#000;box-shadow:none}
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
-.gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.gallery__hero{display:block;margin:auto}.gallery__img{max-width:49%}
+.gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.gallery__hero{display:block;margin:auto}.gallery__img{max-width:32%}
 .mini{height:100%;width:100%}.large{width:90%}@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}
