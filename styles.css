@@ -26,7 +26,7 @@
         list-style: none;
         list-style-image: none;
     }
-    img {border: 0; border-style: none; -ms-interpolation-mode: bicubic;}
+    img {max-width: 100%; border: 0; border-style: none; -ms-interpolation-mode: bicubic;}
     svg:not(:root) {overflow: hidden;}
     hr {
         -moz-box-sizing: content-box;
@@ -262,7 +262,7 @@
         }
 
         .menu__btn {
-            position: absolute;
+            position: fixed;
             right: 8px;
             top: 16px;
 
@@ -275,7 +275,7 @@
         .menu__content {
             display: none;
             overflow: auto;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
@@ -382,6 +382,17 @@
         /*display: inline-block;*/
         vertical-align: middle;
     }
+    .gallery__hero {
+        display: block;
+        margin: auto;
+    }
+    .gallery__img {
+        max-width: 49%;
+    }
+
+
+
+
 
     .mini {
         height: 100%;
@@ -389,9 +400,6 @@
     }
     .large {
         width: 90%;
-    }
-    .large__img {
-        max-width: 100%;
     }
     @media screen and (min-width: 768px) {
         .gallery {
@@ -404,11 +412,4 @@
     }
 
 
-
-.menu__btn {
-    position: fixed;
-}
-.menu__content {
-    position: fixed;
-}
 

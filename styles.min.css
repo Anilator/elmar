@@ -1,7 +1,7 @@
 *{-webkit-tap-highlight-color:transparent}html{font-size:100%;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-touch-action:manipulation;touch-action:manipulation}
 body{margin:0}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:focus{outline:thin dotted}a:active,a:hover{outline:0}b,strong{font-weight:inherit}
-b,strong{font-weight:bolder}menu,ol,ul{padding:0;list-style:none;list-style-image:none}img{border:0;border-style:none;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}
-hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{overflow:visible;font-size:100%;margin:0;line-height:normal;text-transform:none;vertical-align:baseline;*vertical-align:middle}
+b,strong{font-weight:bolder}menu,ol,ul{padding:0;list-style:none;list-style-image:none}img{max-width:100%;border:0;border-style:none;-ms-interpolation-mode:bicubic}
+svg:not(:root){overflow:hidden}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{overflow:visible;font-size:100%;margin:0;line-height:normal;text-transform:none;vertical-align:baseline;*vertical-align:middle}
 button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}
 button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;border-style:none;padding:0;outline:1px dotted ButtonText}
 input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
@@ -15,12 +15,12 @@ a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{min-width:320px}.
 .header__item.menu{text-align:right}.header__item.nav,.header__item.contacts{display:none}@media screen and (min-width:768px){.header__item.logo{width:20%}
 .header__item.menu__btn{display:none}.header__item.menu{width:78%;text-align:right}.header__item.nav{display:inline-block;width:64%;text-align:center}
 .header__item.contacts{display:inline-block;width:34%}}.menu{user-select:none;-webkit-user-select:none}@media screen and (max-width:767px){.logo{text-align:center;width:100%}
-.menu__btn{position:absolute;right:8px;top:16px;color:#fff;font-size:40px;text-align:center;text-shadow:0 1px 1px #555}.menu__content{display:none;overflow:auto;position:absolute;bottom:0;left:0;right:0;top:0;z-index:2;padding-top:40px;text-align:center;background:#eee}
+.menu__btn{position:fixed;right:8px;top:16px;color:#fff;font-size:40px;text-align:center;text-shadow:0 1px 1px #555}.menu__content{display:none;overflow:auto;position:fixed;bottom:0;left:0;right:0;top:0;z-index:2;padding-top:40px;text-align:center;background:#eee}
 .menu__content:after{font-family:'icons';content:"\ea0f";position:absolute;right:16px;top:22px;color:#fff;font-size:24px;text-shadow:0 1px 1px #555}
 .menu__content .header__item{display:block;width:100%}.menu__content .nav__item{display:block;padding:16px;font-size:24px}.nav__item:before{content:none}
 .menu__content .contacts{margin-top:20px}}@media screen and (min-width:768px){.menu__btn{display:none}}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}
 @media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -18px 30px -15px #fff;cursor:pointer}.nav__item:hover,.nav__item-active{color:#000;box-shadow:none}
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
-.gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.mini{height:100%;width:100%}.large{width:90%}.large__img{max-width:100%}
-@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}.menu__btn{position:fixed}.menu__content{position:fixed}
+.gallery{box-sizing:border-box;text-align:center}.gallery__room{vertical-align:middle}.gallery__hero{display:block;margin:auto}.gallery__img{max-width:49%}
+.mini{height:100%;width:100%}.large{width:90%}@media screen and (min-width:768px){.large__img{max-width:100%;max-height:90vh}}
