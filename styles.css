@@ -181,6 +181,7 @@
 
 /*** COMMON STYLES ***
     ===================================================== */
+    html, body { height: 100%; }
     html,button,input,select,textarea {
         color: #333;
         font-family: 'Raleway', sans-serif;
@@ -211,6 +212,7 @@
     ===================================================== */
 
     .app {
+        height: 100%;
         min-width: 320px;
     }
 
@@ -375,39 +377,27 @@
 
 
     .gallery {
+        min-height: 100%;
         box-sizing: border-box;
         text-align: center;
-    }
-    .gallery__room {
-        /*display: inline-block;*/
-        vertical-align: middle;
+        font-size: 0;
+        line-height: 0;
     }
     .gallery__hero {
         display: block;
         margin: auto;
     }
-    .gallery__img {
-        max-width: 32%;
+    .gallery__thumb {
+        max-width: 33.3333%;
     }
 
 
 
 
 
-    .mini {
-        height: 100%;
-        width: 100%;
-    }
-    .large {
-        width: 90%;
-    }
     @media screen and (min-width: 768px) {
-        .gallery {
-            /*padding: 72px 0 8px;*/
-        }
-        .large__img {
-            max-width: 100%;
-            max-height: 90vh;
+        .gallery__thumb {
+            max-width: 25%;
         }
     }
 

@@ -1,16 +1,15 @@
 window.G = {
     pages: {
-        'drawing': {
-            type: 'gallery',
+        'drawings': {
+            contentType: 'drawing',
         },
-        'painting': {
-            type: 'gallery',
+        'paintings': {
+            contentType: 'painting',
         },
         'about': {
-            type: 'static',
+            contentType: 'static',
         },
     },
-    currentPage: 'drawing',
     works: {},
 };
 
@@ -18,100 +17,95 @@ window.G = {
     checkForMobile();
     initPages();
     getData();
-})();
 
-function checkForMobile() {
-    G.isMobile = window.innerWidth < 768 ? true : false;
-
-    $(window).resize(function () {
+    function checkForMobile() {
         G.isMobile = window.innerWidth < 768 ? true : false;
-    });
-}
 
-
-
-function initPages() {
-    var loaders = {
-        'gallery': loadGalleryPage,
-        'static': loadStaticPage,
+        $(window).resize(function () {
+            G.isMobile = window.innerWidth < 768 ? true : false;
+        });
     }
 
-    $('.nav').on('click', '.nav__item', switchPage);
+    function initPages() {
 
-    function switchPage(e) {
-        var $btn = $(e.currentTarget);
-        var page = $btn.data('page');
-        loaders[G.pages[page].type]();
-    }
-    function loadGalleryPage() {
-        console.log('load gallery page');
-    }
-    function loadStaticPage() {
-        console.log('load static page');
-    }
-}
+        $('.nav').on('click', '.nav__item', switchPage);
 
-
-
-function getData() {
-    $.getJSON(
-        "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
-        {
-            key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
-        },
-        handle
-    );
-    function handle(data) {
-
-
-        function resizeTo(src, size) {
-            var srcSplitted = src.split('/');
-
-            srcSplitted[7] = 's' + size;
-
-            return srcSplitted.join('/');
+        function switchPage(e) {
+            var activeClass = 'nav__item-active';
+            var $btn = $(e.currentTarget).addClass(activeClass);
+            $btn.siblings().removeClass(activeClass);
+            var page = $btn.data('page');
+            drawData(G.pages[page].contentType);
         }
+    }
+
+    // debugger;
 
 
+    function getData() {
+        $.getJSON(
+            "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
+            {
+                key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
+            },
+            parseData
+        );
 
-        $.each(data.items, function (i, post) {
-            var $content = $('<div>' + post.content + '</div>');
-            var src = $content.find('a')[0].href;
-            // debugger;
+        function parseData(data) {
 
+            $.each(data.items, function (i, post) {
+                var src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
 
-            var work = {
-                src: src,
-                srcThumb: G.isMobile ? resizeTo(src, 300) : resizeTo(src, 500),
-            };
+                var fullWidth = document.body.clientWidth;
+                var fullHeight = document.body.clientHeight;
+                var heroImgSize = fullWidth;
+                var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
+                var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
 
-            var labels = post.labels;
-            if (labels) {
-                label = labels[0];
-                if (label[0] == '#') {
-                    G.backgroundColor = label;
-                    G.heroImage = G.isMobile ? resizeTo(src, 500) : src;
-                    label = labels[1];
-                } else {
+                var work = {
+                    src: changeImgSize(src, thumbImgSize),
+                    srcZoomed: changeImgSize(src, zoomedImgSize),
+                };
+
+                var labels = post.labels;
+                if (labels) {
+                    label = labels[0];
+                    if (label[0] == '#') {
+                        work.src = changeImgSize(src, heroImgSize);
+                        work.backgroundColor = label;
+                        work.heroImage = true;
+                        label = labels[1];
+                    }
                     G.works[label] = G.works[label] ? G.works[label] : [];
-                    G.works[label].push(work);
+                    G.works[label].unshift(work);
                 }
+            });
+
+            function changeImgSize(src, size) {
+                var srcSplitted = src.split('/');
+
+                srcSplitted[7] = 'w' + size;
+
+                return srcSplitted.join('/');
+            }
+
+
+            drawData('drawing');
+        }
+    }
+
+    function drawData(contentType) {
+        var content = '';
+
+        $.each (G.works[contentType], function (i, work) {
+            if (work.heroImage) {
+                G.backgroundColor = work.backgroundColor;
+                content = '<img class="gallery__hero" src="'+ work.src +'">' + content;
+            } else {
+                content += '<img class="gallery__thumb" src="'+ work.src +'">';
             }
         });
 
-
-
-
-        // console.log(G.works);
-
-        var content = '<img class="gallery__hero" src="'+ G.heroImage +'">';
-
-        $.each (G.works[G.currentPage], function (i, work) {
-            content += '<img class="gallery__img" src="'+ work.srcThumb +'">';
-        });
-
-        $('.gallery__room.mini').html(content).css('background', G.backgroundColor);
+        $('.gallery').html(content).css('background', G.backgroundColor);
     }
-}
-
-
+})();
