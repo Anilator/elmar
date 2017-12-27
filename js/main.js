@@ -111,7 +111,7 @@ function readStorage() {
 
         var fullWidth = document.body.clientWidth;
         var heroImgSize = fullWidth;
-        var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
+        var thumbImgSize = G.isMobile ? ~~(fullWidth / 3*2) : ~~(fullWidth / 4);
 
 
         $.each (G.works[page], function (i, work) {
