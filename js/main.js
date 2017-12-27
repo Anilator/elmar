@@ -102,7 +102,7 @@ window.G = {
                 G.backgroundColor = work.backgroundColor;
                 content = '<img class="gallery__hero" src="'+ work.src +'">' + content;
             } else {
-                content += '<img class="gallery__thumb" src="'+ work.src +'">';
+                content += '<a href="'+ work.srcZoomed +'"><img class="gallery__thumb" src="'+ work.src +'"></a>';
             }
         });
 
