@@ -9,5 +9,6 @@ function readStorage() {
     }
     return data;
 }
+
 window.G = readStorage();
 console.log(G);

@@ -129,7 +129,7 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
         var workNumber = $thumb.data('i');
         G.activeWork = workNumber;
 
-        // setStorage();
+        setStorage();
         var galleryPath = location.href.split('/');
         galleryPath.splice(-1, 1, 'gallery.html');
         location.href = galleryPath.join('/');
