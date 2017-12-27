@@ -38,8 +38,8 @@
     }
 
     function updateControls() {
-        var left = $('#left').css('display', '');
-        var right = $('#right').css('display', '');
+        var $left = $('#left').css('display', '');
+        var $right = $('#right').css('display', '');
         if (G.activeWork) {
             if (G.activeWork >= G.works[G.activePage].length - 1)
                 $right.css('display: none');
