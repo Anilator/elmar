@@ -1,17 +1,6 @@
 window.G = readStorage();
 if (!G) {
     G = {
-        pages: {
-            'page_drawings': {
-                contentType: 'drawing',
-            },
-            'page_paintings': {
-                contentType: 'painting',
-            },
-            'page_about': {
-                contentType: 'about',
-            },
-        },
         works: {},
         activePage: 'drawing',
         activeWork: '0',
@@ -23,7 +12,7 @@ function readStorage() {
     try {
         if (!window.localStorage.G) return false;
         data = JSON.parse(window.localStorage.G);
-        if (!data.pages) return false;
+        if (!data.works) return false;
     } catch (e) {
         console.warn(e);
         // alert('Zoom is not working on your device');
@@ -61,7 +50,7 @@ function readStorage() {
             G.activePage = page;
             saveToStorage();
 
-            drawData(G.pages[page].contentType);
+            drawData();
         }
     }
 
@@ -75,7 +64,7 @@ function readStorage() {
                 parseData
             );
         } else {
-            drawData(G.activePage);
+            drawData();
         }
 
 
@@ -109,7 +98,7 @@ function readStorage() {
                 }
             });
 
-            drawData(G.activePage);
+            drawData();
         }
     }
 
@@ -121,11 +110,12 @@ function readStorage() {
         return srcSplitted.join('/');
     }
 
-    function drawData(contentType) {
+    function drawData() {
+        var page = G.activePage;
         var content = '';
         var $gallery = $('.gallery');
 
-        $.each (G.works[contentType], function (i, work) {
+        $.each (G.works[page], function (i, work) {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
                 content = '<img class="gallery__hero" src="'+ work.src +'">' + content;
