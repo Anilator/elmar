@@ -23,5 +23,5 @@ a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{height:100%;min-w
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
 .gallery{min-height:100%;text-align:center;padding-bottom:40px}.gallery:after{content:'';display:table;clear:both}.gallery__hero{display:block;margin:auto}
-.gallery__thumb{float:left;overflow:hidden;position:relative;height:0;margin-top:16px;max-width:33.3333%;padding-bottom:33.3333%;width:100%}.gallery__thumb_cont{position:absolute;bottom:0;left:0;right:0;top:0}
+.gallery__thumb{float:left;overflow:hidden;position:relative;height:0;margin-top:16px;max-width:33.3333%;padding-bottom:33.3333%;width:100%}.gallery__thumb_cont{position:absolute;bottom:0;left:0;right:0;top:0;padding:0 4px}
 .gallery__thumb_cont img{max-height:100%;max-width:100%}@media screen and (min-width:768px){.gallery__thumb{max-width:25%;padding-bottom:25%}}

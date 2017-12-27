@@ -1,7 +1,7 @@
 ;(function start() {
     var fullWidth = window.innerWidth;
     var fullHeight = window.innerHeight;
-    var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
+    var zoomedImgSize = Math.max(fullWidth, fullHeight) * 3;
 
     window.G = readStorage();
     if (window.G) {

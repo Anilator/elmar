@@ -57,6 +57,7 @@ function readStorage() {
                 "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
                 {
                     key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
+                    maxResults: '100',
                 },
                 parseData
             );
@@ -70,8 +71,11 @@ function readStorage() {
 
             $.each(data.items, function (i, post) {
                 var src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
+                var text = post.content.replace(/<a.*?<\/a>/, '');
                 var work = {
                     src: src,
+                    text: text,
+                    title: post.title,
                 };
 
                 var labels = post.labels;

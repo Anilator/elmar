@@ -407,6 +407,7 @@
         left: 0;
         right: 0;
         top: 0;
+        padding: 0 4px;
     }
     .gallery__thumb_cont img {
         max-height: 100%;
