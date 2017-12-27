@@ -38,13 +38,13 @@
     }
 
     function updateControls() {
-        var $left = $('.controls .left').css('');
-        var $right = $('.controls .right').css('');
+        var left = document.getElementById('left').style.display = '';
+        var right = document.getElementById('right').style.display = '';
         if (G.activeWork) {
             if (G.activeWork >= G.works[G.activePage].length - 1)
-                $right.css('display: none');
+                right.style.display = 'none';
         } else {
-            $left.css('display: none');
+            left.style.display = 'none';
         }
     }
 
