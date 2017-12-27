@@ -11,7 +11,8 @@ window.G = {
         },
     },
     works: {},
-    activePage: '',
+    activePage: 'drawing',
+    activeWork: '0',
 };
 try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.warn(e) }
 
@@ -19,7 +20,6 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
     checkForMobile();
     initPages();
     getData();
-    setStorage();
 
 
     function checkForMobile() {
@@ -41,7 +41,7 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
 
             var page = $btn.data('page');
             G.activePage = page;
-            // localStorage.activePage = page;
+            saveToStorage();
 
             drawData(G.pages[page].contentType);
         }
@@ -88,17 +88,16 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
                 }
             });
 
-            function changeImgSize(src, size) {
-                var srcSplitted = src.split('/');
-
-                srcSplitted[7] = 's' + size;
-
-                return srcSplitted.join('/');
-            }
-
-
             drawData(G.activePage);
         }
+    }
+
+    function changeImgSize(src, size) {
+        var srcSplitted = src.split('/');
+
+        srcSplitted[7] = 's' + size;
+
+        return srcSplitted.join('/');
     }
 
     function drawData(contentType) {
@@ -125,18 +124,17 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
     }
 
     function zoomImg(e) {
-        var $thumb = $(e.currentTarget);
-        var workNumber = $thumb.data('i');
-        G.activeWork = workNumber;
+        var workNumber = $(e.currentTarget).data('i');
 
-        setStorage();
+        G.activeWork = workNumber;
+        saveToStorage();
+
         var galleryPath = location.href.split('/');
         galleryPath.splice(-1, 1, 'gallery.html');
         location.href = galleryPath.join('/');
-        console.log(galleryPath);
     }
 
-    function setStorage() {
+    function saveToStorage() {
         try {
             window.localStorage.G = JSON.stringify(G);
         }
