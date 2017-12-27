@@ -11,9 +11,9 @@ window.G = {
         },
     },
     works: {},
-    activePage: 'drawing',
+    activePage: '',
 };
-try { G.activePage = localStorage.activePage; } catch(e) { console.warn(e) }
+try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.warn(e) }
 
 ;(function start() {
     checkForMobile();
@@ -61,15 +61,14 @@ try { G.activePage = localStorage.activePage; } catch(e) { console.warn(e) }
 
         function parseData(data) {
 
+            var fullWidth = document.body.clientWidth;
+            var fullHeight = document.body.clientHeight;
+            var heroImgSize = fullWidth;
+            var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
+            var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
+
             $.each(data.items, function (i, post) {
                 var src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
-
-                var fullWidth = document.body.clientWidth;
-                var fullHeight = document.body.clientHeight;
-                var heroImgSize = fullWidth;
-                var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
-                var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
-
                 var work = {
                     src: changeImgSize(src, thumbImgSize),
                     srcZoomed: changeImgSize(src, zoomedImgSize),
