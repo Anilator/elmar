@@ -1,25 +1,42 @@
-window.G = {
-    pages: {
-        'drawings': {
-            contentType: 'drawing',
+window.G = readStorage();
+if (!G) {
+    G = {
+        pages: {
+            'drawings': {
+                contentType: 'drawing',
+            },
+            'paintings': {
+                contentType: 'painting',
+            },
+            'about': {
+                contentType: 'static',
+            },
         },
-        'paintings': {
-            contentType: 'painting',
-        },
-        'about': {
-            contentType: 'static',
-        },
-    },
-    works: {},
-    activePage: 'drawing',
-    activeWork: '0',
-};
-try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.warn(e) }
+        works: {},
+        activePage: 'drawing',
+        activeWork: '0',
+    };
+}
+
+function readStorage() {
+    var data = {};
+    try {
+        data = JSON.parse(window.localStorage.G);
+        if (!data.pages) return false;
+    } catch (e) {
+        console.warn(e);
+        // alert('Zoom is not working on your device');
+        return false;
+    }
+    return data;
+}
+
 
 ;(function start() {
     checkForMobile();
     initPages();
-    getData();
+    // debugger;
+    getWorks();
 
 
     function checkForMobile() {
@@ -47,17 +64,19 @@ try { G.activePage = localStorage.activePage || 'drawing'; } catch(e) { console.
         }
     }
 
-    // debugger;
+    function getWorks() {
+        if (!G.works.length) {
+            $.getJSON(
+                "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
+                {
+                    key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
+                },
+                parseData
+            );
+        } else {
+            drawData(G.activePage);
+        }
 
-
-    function getData() {
-        $.getJSON(
-            "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
-            {
-                key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
-            },
-            parseData
-        );
 
         function parseData(data) {
 
