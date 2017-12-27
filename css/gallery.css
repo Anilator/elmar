@@ -1,15 +1,22 @@
 html, body { height: 100%; margin: 0; }
 
 .gallery {
-    display: table-cell;
     height: 100%;
     width: 100%;
     text-align: center;
+    font-size: 1px;
+    line-height: 0px;
+}
+.gallery:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
     vertical-align: middle;
 }
 .gallery img {
     max-width: 99%;
     max-height: 100%;
+    vertical-align: middle;
 }
 
 .controls {
