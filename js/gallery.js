@@ -42,9 +42,9 @@
         var $right = $('#right').css('display', '');
         if (G.activeWork) {
             if (G.activeWork >= G.works[G.activePage].length - 1)
-                $right.css('display: none');
+                $right.css('display', 'none');
         } else {
-            $left.css('display: none');
+            $left.css('display', 'none');
         }
     }
 
