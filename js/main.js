@@ -2,14 +2,14 @@ window.G = readStorage();
 if (!G) {
     G = {
         pages: {
-            'drawings': {
+            'page_drawings': {
                 contentType: 'drawing',
             },
-            'paintings': {
+            'page_paintings': {
                 contentType: 'painting',
             },
-            'about': {
-                contentType: 'static',
+            'page_about': {
+                contentType: 'about',
             },
         },
         works: {},
@@ -21,6 +21,7 @@ if (!G) {
 function readStorage() {
     var data = {};
     try {
+        if (!window.localStorage.G) return false;
         data = JSON.parse(window.localStorage.G);
         if (!data.pages) return false;
     } catch (e) {
@@ -65,7 +66,7 @@ function readStorage() {
     }
 
     function getWorks() {
-        if (!G.works.length) {
+        if (!G.works.fetched) {
             $.getJSON(
                 "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
                 {
@@ -80,6 +81,7 @@ function readStorage() {
 
         function parseData(data) {
 
+            G.works = { fetched: true };
             var fullWidth = document.body.clientWidth;
             var fullHeight = document.body.clientHeight;
             var heroImgSize = fullWidth;
