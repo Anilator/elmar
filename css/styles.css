@@ -267,6 +267,7 @@
             position: fixed;
             right: 8px;
             top: 16px;
+            z-index: 11;
 
             color: #fff;
             font-size: 40px;
@@ -379,6 +380,7 @@
     .gallery {
         min-height: 100%;
         text-align: center;
+        padding-bottom: 40px;
     }
     .gallery:after {
         content: '';

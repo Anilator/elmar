@@ -66,26 +66,18 @@ function readStorage() {
 
 
         function parseData(data) {
-
             G.works = { fetched: true };
-            var fullWidth = document.body.clientWidth;
-            var fullHeight = document.body.clientHeight;
-            var heroImgSize = fullWidth;
-            var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
-            var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
 
             $.each(data.items, function (i, post) {
                 var src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
                 var work = {
-                    src: changeImgSize(src, thumbImgSize),
-                    srcZoomed: changeImgSize(src, zoomedImgSize),
+                    src: src,
                 };
 
                 var labels = post.labels;
                 if (labels) {
                     label = labels[0];
                     if (label[0] == '#') {
-                        work.src = changeImgSize(src, heroImgSize);
                         work.backgroundColor = label;
                         work.heroImage = true;
                         label = labels[1];
@@ -116,20 +108,28 @@ function readStorage() {
         var $btn = $('.nav__item[data-page="'+ page +'"]').addClass(activeBtnClass);
         $btn.siblings().removeClass(activeBtnClass);
 
+
+        var fullWidth = document.body.clientWidth;
+        var heroImgSize = fullWidth;
+        var thumbImgSize = G.isMobile ? ~~(fullWidth / 3) : ~~(fullWidth / 4);
+
+
         $.each (G.works[page], function (i, work) {
+            var src;
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
-                content = '<img class="gallery__hero" src="'+ work.src +'">' + content;
+                src = changeImgSize(work.src, heroImgSize);
+                content = '<img class="gallery__hero" src="'+ src +'">' + content;
             } else {
+                src = changeImgSize(work.src, thumbImgSize);
                 content +=
                     '<div class="gallery__thumb" data-i="'+ i +'">'+
                         '<div class="gallery__thumb_cont">'+
-                            '<img src="'+ work.src +'">'+
+                            '<img src="'+ src +'">'+
                         '</div>'+
                     '</div>';
             }
         });
-
 
 
         $gallery.html(content).css('background', G.backgroundColor);

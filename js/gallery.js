@@ -3,7 +3,15 @@
     window.G = readStorage();
 
     if (window.G) {
-        console.log(G.works[G.activePage][G.activeWork]);
+        var fullWidth = window.innerWidth;
+        var fullHeight = window.innerHeight;
+        var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
+
+        var activeWorkSrc = G.works[G.activePage][G.activeWork];
+        var src = changeImgSize(activeWorkSrc, zoomedImgSize);
+
+        content = '<img src="'+ src +'">';
+        $('.gallery').html(content);
     }
 
     function readStorage() {
@@ -16,5 +24,12 @@
             return false;
         }
         return data;
+    }
+    function changeImgSize(src, size) {
+        var srcSplitted = src.split('/');
+
+        srcSplitted[7] = 's' + size;
+
+        return srcSplitted.join('/');
     }
 })();
