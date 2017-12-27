@@ -7,7 +7,7 @@
         var fullHeight = window.innerHeight;
         var zoomedImgSize = Math.max(fullWidth, fullHeight) * 2;
 
-        var activeWorkSrc = G.works[G.activePage][G.activeWork];
+        var activeWorkSrc = G.works[G.activePage][G.activeWork].src;
         var src = changeImgSize(activeWorkSrc, zoomedImgSize);
 
         content = '<img src="'+ src +'">';
