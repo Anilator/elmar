@@ -11,12 +11,16 @@ window.G = {
         },
     },
     works: {},
+    activePage: 'drawing',
 };
+try { G.activePage = localStorage.activePage; } catch(e) { console.warn(e) }
 
 ;(function start() {
     checkForMobile();
     initPages();
     getData();
+    setStorage();
+
 
     function checkForMobile() {
         G.isMobile = window.innerWidth < 768 ? true : false;
@@ -34,7 +38,11 @@ window.G = {
             var activeClass = 'nav__item-active';
             var $btn = $(e.currentTarget).addClass(activeClass);
             $btn.siblings().removeClass(activeClass);
+
             var page = $btn.data('page');
+            G.activePage = page;
+            // localStorage.activePage = page;
+
             drawData(G.pages[page].contentType);
         }
     }
@@ -84,28 +92,55 @@ window.G = {
             function changeImgSize(src, size) {
                 var srcSplitted = src.split('/');
 
-                srcSplitted[7] = 'w' + size;
+                srcSplitted[7] = 's' + size;
 
                 return srcSplitted.join('/');
             }
 
 
-            drawData('drawing');
+            drawData(G.activePage);
         }
     }
 
     function drawData(contentType) {
         var content = '';
+        var $gallery = $('.gallery');
 
         $.each (G.works[contentType], function (i, work) {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
                 content = '<img class="gallery__hero" src="'+ work.src +'">' + content;
             } else {
-                content += '<a href="'+ work.srcZoomed +'"><img class="gallery__thumb" src="'+ work.src +'"></a>';
+                content +=
+                    '<div class="gallery__thumb" data-i="'+ i +'">'+
+                        '<div class="gallery__thumb_cont">'+
+                            '<img src="'+ work.src +'">'+
+                        '</div>'+
+                    '</div>';
             }
         });
 
-        $('.gallery').html(content).css('background', G.backgroundColor);
+        $gallery.html(content).css('background', G.backgroundColor);
+
+        $gallery.on('click', '.gallery__thumb', zoomImg);
+    }
+
+    function zoomImg(e) {
+        var $thumb = $(e.currentTarget);
+        var workNumber = $thumb.data('i');
+        G.activeWork = workNumber;
+
+        // setStorage();
+        var galleryPath = location.href.split('/');
+        galleryPath.splice(-1, 1, 'gallery.html');
+        location.href = galleryPath.join('/');
+        console.log(galleryPath);
+    }
+
+    function setStorage() {
+        try {
+            window.localStorage.G = JSON.stringify(G);
+        }
+        catch (e) { console.warn(e); }
     }
 })();
