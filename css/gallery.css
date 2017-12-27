@@ -1,2 +1,35 @@
-.app {}
-.gallery {}
+html, body { height: 100%; margin: 0; }
+
+.gallery {
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.gallery img {
+    max-width: 99%;
+    max-height: 100%;
+}
+
+.controls {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0;
+}
+.controls i {
+    position: absolute;
+    height: 12vw;
+    width: 12vw;
+    margin-top: -6vw;
+    background: #ccc;
+    padding: 3vw;
+    border-radius: 50%;
+    opacity: .5;
+}
+.controls .right {
+    right: 0;
+}
+
