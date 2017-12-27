@@ -42,11 +42,8 @@ function readStorage() {
         $('.nav').on('click', '.nav__item', switchPage);
 
         function switchPage(e) {
-            var activeClass = 'nav__item-active';
-            var $btn = $(e.currentTarget).addClass(activeClass);
-            $btn.siblings().removeClass(activeClass);
+            var page = $(e.currentTarget).data('page');
 
-            var page = $btn.data('page');
             G.activePage = page;
             saveToStorage();
 
@@ -115,6 +112,10 @@ function readStorage() {
         var content = '';
         var $gallery = $('.gallery');
 
+        var activeBtnClass = 'nav__item-active';
+        var $btn = $('.nav__item[data-page="'+ page +'"]').addClass(activeBtnClass);
+        $btn.siblings().removeClass(activeBtnClass);
+
         $.each (G.works[page], function (i, work) {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
@@ -128,6 +129,8 @@ function readStorage() {
                     '</div>';
             }
         });
+
+
 
         $gallery.html(content).css('background', G.backgroundColor);
 
