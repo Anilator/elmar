@@ -115,7 +115,7 @@
             else switchImg('next');
         }
         function moveVert(isDown) {
-            if (isDown && window.pageYOffset < -10) {
+            if (isDown && window.pageYOffset < 1) {
                 history.back();
             } else {}
         }
