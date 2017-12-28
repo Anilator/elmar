@@ -22,9 +22,19 @@ html {
     vertical-align: middle;
 }
 
+.description {
+    max-width: 400px;
+    margin: 16px auto 0;
+    padding: 16px 16px;
+    text-align: center;
+    background: #eee;
+}
+
 .controls { display: none; }
+
 @media screen and (min-width: 768px) {
     .controls {
+        display: block;
         position: fixed;
         top: 50%;
         left: 0;
@@ -39,33 +49,10 @@ html {
         background: #ccc;
         padding: 3vw;
         border-radius: 50%;
-        opacity: .5;
+        opacity: .4;
+        cursor: pointer;
     }
     #right {
         right: 0;
     }
-}
-
-.description {
-    max-width: 400px;
-    margin: 16px auto 0;
-    padding: 16px 16px;
-    text-align: center;
-    background: #eee;
-}
-
-
-.message {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    color: red;
-    text-align: center;
-
-margin-top: -15px;
-/*    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);*/
 }
