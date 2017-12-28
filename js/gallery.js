@@ -60,7 +60,7 @@
     function handleTouches() {
 
         var startX, startY, endX, endY;
-        var tresX = 40, tresY = 40;
+        var tresX = 40, tresY = 150;
         var $doc = $(document);
 
         $doc.on('touchstart', touchstart);
@@ -84,7 +84,6 @@
             var distX = endX - startX;
             var distY = endY - startY;
 
-            $('.description').html(' . . client: '+ t.clientY +'<br>'+ distY +'<br>');
 
             if (distX > tresX) moveHorizon(true);
             if (distX < tresX * -1) moveHorizon(false);
@@ -98,7 +97,7 @@
             else console.log('left');
         }
         function moveVert(isDown) {
-            if (isDown) console.log('down');
+            if (isDown) $('.description').html(' closing... ');
             else console.log('up');
         }
     }
