@@ -52,7 +52,7 @@
         var src = changeImgSize(activeWork.src, zoomedImgSize);
 
         var content = '<img src="'+ src +'">';
-        $('.gallery').html(content);
+        $('.gallery').html(content).css('background-image', 'url('+ activeWork.src +')');
         $('html').css('background', G.backgroundColor);
 
         var $description = $('.description').html(activeWork.text);
@@ -120,7 +120,6 @@
             } else {}
         }
     }
-
 
     function readStorage() {
         var data = {};
