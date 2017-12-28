@@ -17,8 +17,8 @@ a:focus{outline:0}a:visited{color:#765}img{max-width:100%}.app{height:100%;min-w
 .header__item.contacts{display:inline-block;width:34%}}.menu{user-select:none;-webkit-user-select:none}@media screen and (max-width:767px){.logo{text-align:center;width:100%}
 .menu__btn{position:fixed;right:8px;top:16px;z-index:10;color:#fff;font-size:40px;text-align:center;text-shadow:0 1px 1px #555}.menu__content{display:none;overflow:auto;position:fixed;bottom:0;left:0;right:0;top:0;z-index:11;padding-top:40px;text-align:center;background:#eee}
 .menu__content:after{font-family:'icons';content:"\ea0f";position:absolute;right:16px;top:22px;color:#fff;font-size:24px;text-shadow:0 1px 1px #555}
-.menu__content .header__item{display:block;width:100%}.menu__content .nav__item{display:block;padding:16px;font-size:24px}.nav__item:before{content:none}
-.menu__content .contacts{margin-top:20px}}@media screen and (min-width:768px){.menu__btn{display:none}}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}
+.menu__content .header__item{display:block;width:100%}.menu__content .nav__item{display:block;margin:auto;max-width:240px;padding:16px;font-size:24px}
+.nav__item:before{content:none}.menu__content .contacts{margin-top:20px}}@media screen and (min-width:768px){.menu__btn{display:none}}.nav__item{display:inline-block;position:relative;font-size:20px;padding:8px 16px}
 @media screen and (min-width:768px){.nav__item{border-radius:2px;box-shadow:0 7px 30px -11px,inset 0 -18px 30px -15px #fff;cursor:pointer}.nav__item:hover,.nav__item-active{color:#000;box-shadow:none}
 .nav__item-active{cursor:default}}.contacts__link{position:relative;display:inline-block;overflow:hidden;height:64px;width:64px;color:#777;font-size:32px;line-height:64px;transition:all .2s}
 .contacts__link:before{display:block;height:100%;color:#fff;text-align:center;text-shadow:0 1px 1px #555}.contacts__link:hover:before{top:18px;text-shadow:none;color:#333}
