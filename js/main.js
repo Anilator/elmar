@@ -70,22 +70,25 @@ function readStorage() {
             G.works = { fetched: true };
 
             $.each(data.items, function (i, post) {
-                var src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
-                var text = post.content.replace(/<a.*?<\/a>/, '');
-                var work = {
-                    src: src,
-                    text: text,
-                    title: post.title,
-                };
-
                 var labels = post.labels;
                 if (labels) {
-                    label = labels[0];
+                    var label = labels[0];
+                    var work = {};
                     if (label[0] == '#') {
                         work.backgroundColor = label;
                         work.heroImage = true;
                         label = labels[1];
                     }
+
+                    if (label == 'about') {
+                        G.about = post.content;
+                        return;
+                    }
+
+                    work.src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
+                    work.text = post.content.replace(/<a.*?<\/a>/, '');
+                    work.title = post.title;
+
                     G.works[label] = G.works[label] ? G.works[label] : [];
                     G.works[label].unshift(work);
                 }
@@ -134,6 +137,11 @@ function readStorage() {
                     '</div>';
             }
         });
+
+        if (page == 'about') {
+            content = '<div class="about">'+ G.about +'</div>';
+            G.backgroundColor = '#eee';
+        }
 
 
         $gallery.html(content).css('background', G.backgroundColor);

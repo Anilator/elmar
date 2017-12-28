@@ -64,7 +64,7 @@
     function handleTouches() {
 
         var startX, startY, endX, endY;
-        var tresX = 64, tresY = 120;
+        var tresX = 64, tresY = 100;
         var isMulti = false;
         var $doc = $(document);
 
@@ -115,7 +115,7 @@
             else switchImg('next');
         }
         function moveVert(isDown) {
-            if (isDown) {
+            if (isDown && window.pageYOffset < -10) {
                 history.back();
             } else {}
         }

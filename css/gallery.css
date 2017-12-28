@@ -1,4 +1,10 @@
 html, body { height: 100%; margin: 0; }
+html {
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    background: #eee;
+}
 
 .gallery {
     height: 100%;
@@ -37,9 +43,6 @@ html, body { height: 100%; margin: 0; }
         padding: 3vw;
         border-radius: 50%;
         opacity: .5;
-
-        -ms-touch-action: manipulation;
-            touch-action: manipulation;
     }
     #right {
         right: 0;

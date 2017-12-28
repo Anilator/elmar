@@ -8,9 +8,6 @@
         line-height: 1.15;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
-
-        -ms-touch-action: manipulation;
-            touch-action: manipulation;
     }
     body {margin: 0;}
     a {
@@ -186,6 +183,7 @@
         color: #333;
         font-family: 'Raleway', sans-serif;
         font-size: 16px;
+        line-height: 1.5;
         background: #eee;
     }
     h1,h2,h3,h4,h5,h6 {
@@ -422,4 +420,11 @@
     }
 
 
+    .about {
+        max-width: 480px;
+        margin: auto;
+        padding: 40px 16px;
 
+        font-size: 20px;
+        text-align: justify;
+    }
