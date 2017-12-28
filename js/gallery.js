@@ -9,11 +9,16 @@
         updateControls();
         showZoomedImg();
 
-        $('.controls').on('click', 'i', switchImg);
+        $('.controls').on('click', 'i', handleControls);
     }
-        handleTouches();
 
 
+    function handleControls(e) {
+        var $btn = $(e.currentTarget);
+        var direction = $btn.data('dir');
+
+        switchImg(direction);
+    }
 
     function showZoomedImg() {
 
@@ -26,11 +31,11 @@
         var $description = $('.description').html(activeWork.text);
     }
 
-    function switchImg(e) {
+    function switchImg(direction) {
         var $btn = $(e.currentTarget);
         var direction = $btn.data('dir');
 
-        if (direction) { // right
+        if (direction == 'next') { // right
             if (G.activeWork < G.works[G.activePage].length - 1)
                 G.activeWork++;
         } else { // left
@@ -60,7 +65,7 @@
     function handleTouches() {
 
         var startX, startY, endX, endY;
-        var tresX = 100, tresY = 150;
+        var tresX = 64, tresY = 120;
         var $doc = $(document);
 
         $doc.on('touchstart', touchstart);
@@ -93,12 +98,13 @@
         }
 
         function moveHorizon(isRight) {
-            if (isRight) $('.description').html(' right move... ');
-            else $('.description').html(' left move... ');
+            if (isRight) switchImg('prev');
+            else switchImg('next');
         }
         function moveVert(isDown) {
-            if (isDown) $('.description').html(' closing... ');
-            else $('.description').html('');
+            if (isDown) {
+                history.back();
+            } else {}
         }
     }
 
