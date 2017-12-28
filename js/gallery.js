@@ -23,9 +23,6 @@
 
 
     function switchImg(direction) {
-        var $btn = $(e.currentTarget);
-        var direction = $btn.data('dir');
-
         if (direction == 'next') { // right
             if (G.activeWork < G.works[G.activePage].length - 1)
                 G.activeWork++;
