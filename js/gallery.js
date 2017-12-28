@@ -52,7 +52,8 @@
         var src = changeImgSize(activeWork.src, zoomedImgSize);
 
         var content = '<img src="'+ src +'">';
-        $('.gallery').html(content).css('background', G.backgroundColor);
+        $('.gallery').html(content);
+        $('html').css('background', G.backgroundColor);
 
         var $description = $('.description').html(activeWork.text);
     }
@@ -80,6 +81,8 @@
         }
         function touchend(e) {
             var t = e.originalEvent.changedTouches[0];
+            if (e.originalEvent.changedTouches.length > 1) retutn;
+
             console.log(t);
             endX = t.clientX;
             endY = t.clientY;

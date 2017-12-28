@@ -52,7 +52,7 @@ function readStorage() {
     }
 
     function getWorks() {
-        if (!G.works.fetched) {
+        if (/*!G.works.fetched*/ true) {
             $.getJSON(
                 "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
                 {
