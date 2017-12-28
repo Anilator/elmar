@@ -10,6 +10,7 @@
         showZoomedImg();
 
         $('.controls').on('click', 'i', handleControls);
+        handleTouches();
     }
 
 
@@ -20,16 +21,6 @@
         switchImg(direction);
     }
 
-    function showZoomedImg() {
-
-        var activeWork = G.works[G.activePage][G.activeWork];
-        var src = changeImgSize(activeWork.src, zoomedImgSize);
-
-        var content = '<img src="'+ src +'">';
-        $('.gallery').html(content).css('background', G.backgroundColor);
-
-        var $description = $('.description').html(activeWork.text);
-    }
 
     function switchImg(direction) {
         var $btn = $(e.currentTarget);
@@ -58,6 +49,16 @@
         }
     }
 
+    function showZoomedImg() {
+
+        var activeWork = G.works[G.activePage][G.activeWork];
+        var src = changeImgSize(activeWork.src, zoomedImgSize);
+
+        var content = '<img src="'+ src +'">';
+        $('.gallery').html(content).css('background', G.backgroundColor);
+
+        var $description = $('.description').html(activeWork.text);
+    }
 
 
 
