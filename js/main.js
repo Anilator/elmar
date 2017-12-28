@@ -57,7 +57,7 @@ function readStorage() {
                 "https://www.googleapis.com/blogger/v3/blogs/327656489361647821/posts",
                 {
                     key: 'AIzaSyA-T9NRjIXJMQHWuf4TEZfAoBG9sfvarQg',
-                    maxResults: '100',
+                    maxResults: '500',
                 },
                 parseData
             );
