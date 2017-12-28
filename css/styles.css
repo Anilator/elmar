@@ -23,7 +23,12 @@
         list-style: none;
         list-style-image: none;
     }
-    img {max-width: 100%; border: 0; border-style: none; -ms-interpolation-mode: bicubic;}
+    img {
+        max-width: 100%;
+        border: 0;
+        border-style: none;
+        -ms-interpolation-mode: bicubic;
+    }
     svg:not(:root) {overflow: hidden;}
     hr {
         -moz-box-sizing: content-box;
@@ -203,8 +208,6 @@
         outline: none;
     }
     a:visited {color: #765;}
-
-    img { max-width: 100%; }
 
 /*** BLOCKS ***
     ===================================================== */
