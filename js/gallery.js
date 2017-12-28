@@ -73,22 +73,23 @@
             startY = t.screenY;
         }
         function touchmove(e) {
-            t = e.originalEvent.touches[0];
-            endX = t.screenX;
-            endY = t.screenY;
+            // console.log(e.originalEvent.touches[0]);
         }
         function touchend(e) {
+            var t = e.originalEvent.changedTouches[0];
+            endX = t.screenX;
+            endY = t.screenY;
+
             var distX = endX - startX;
             var distY = endY - startY;
+
+            $('.description').html(startY +'<br>'+ endY +'<br>'+ distY);
 
             if (distX > tresX) moveHorizon(true);
             if (distX < tresX * -1) moveHorizon(false);
 
             if (distY > tresY) moveVert(true);
             if (distY < tresY * -1) moveVert(false);
-
-
-            $('.description').html(window.pageYOffset +'<br>'+ distX +'<br>'+ distY);
         }
 
         function moveHorizon(isRight) {
