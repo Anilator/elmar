@@ -77,13 +77,14 @@
         }
         function touchend(e) {
             var t = e.originalEvent.changedTouches[0];
+            console.log(t);
             endX = t.screenX;
             endY = t.screenY;
 
             var distX = endX - startX;
             var distY = endY - startY;
 
-            $('.description').html(startY +'<br>'+ endY +'<br>'+ distY);
+            $('.description').html('screen: '+ t.screenY +' . . client: '+ t.clientY +' . . pageY: '+ t.pageY +'<br>'+ '<br>');
 
             if (distX > tresX) moveHorizon(true);
             if (distX < tresX * -1) moveHorizon(false);
