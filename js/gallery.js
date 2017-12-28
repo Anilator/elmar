@@ -69,8 +69,8 @@
 
         function touchstart(e) {
             t = e.originalEvent.touches[0];
-            startX = t.screenX;
-            startY = t.screenY;
+            startX = t.clientX;
+            startY = t.clientY;
         }
         function touchmove(e) {
             // console.log(e.originalEvent.touches[0]);
@@ -78,13 +78,13 @@
         function touchend(e) {
             var t = e.originalEvent.changedTouches[0];
             console.log(t);
-            endX = t.screenX;
-            endY = t.screenY;
+            endX = t.clientX;
+            endY = t.clientY;
 
             var distX = endX - startX;
             var distY = endY - startY;
 
-            $('.description').html('screen: '+ t.screenY +' . . client: '+ t.clientY +' . . pageY: '+ t.pageY +'<br>'+ '<br>');
+            $('.description').html(' . . client: '+ t.clientY +'<br>'+ distY +'<br>');
 
             if (distX > tresX) moveHorizon(true);
             if (distX < tresX * -1) moveHorizon(false);
