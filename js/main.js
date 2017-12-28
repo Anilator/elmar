@@ -101,7 +101,7 @@ function readStorage() {
     function changeImgSize(src, size) {
         var srcSplitted = src.split('/');
 
-        srcSplitted[7] = 's' + size;
+        srcSplitted[7] = 'w' + size;
 
         return srcSplitted.join('/');
     }
@@ -117,7 +117,7 @@ function readStorage() {
 
 
         var fullWidth = document.body.clientWidth;
-        var heroImgSize = fullWidth;
+        var heroImgSize = fullWidth * 2;
         var thumbImgSize = G.isMobile ? ~~(fullWidth / 3*2) : ~~(fullWidth / 4);
 
 
@@ -126,7 +126,7 @@ function readStorage() {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
                 src = changeImgSize(work.src, heroImgSize);
-                content = '<img class="gallery__hero" src="'+ src +'">' + content;
+                content = '<div class="gallery__hero"><img src="'+ src +'"></div>' + content;
             } else {
                 src = changeImgSize(work.src, thumbImgSize);
                 content +=

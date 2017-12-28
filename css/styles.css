@@ -304,7 +304,7 @@
         .menu__content .nav__item {
             display: block;
             margin: auto;
-            max-width: 240px;
+            max-width: 160px;
             padding: 16px;
             font-size: 24px;
         }
@@ -378,9 +378,9 @@
 
 
     .gallery {
+        padding: 0 16px 40px;
         min-height: 100%;
         text-align: center;
-        padding-bottom: 40px;
     }
     .gallery:after {
         content: '';
@@ -389,7 +389,7 @@
     }
     .gallery__hero {
         display: block;
-        margin: auto;
+        margin: 0 -16px;
     }
     .gallery__thumb {
         float: left;
@@ -410,8 +410,7 @@
         padding: 0 4px;
     }
     .gallery__thumb_cont img {
-        max-height: 100%;
-        max-width: 100%;
+        width: 100%;
     }
 
     @media screen and (min-width: 768px) {
