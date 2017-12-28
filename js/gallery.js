@@ -11,14 +11,19 @@
 
         $('.controls').on('click', 'i', switchImg);
     }
+        handleTouches();
+
+
 
     function showZoomedImg() {
 
-        var activeWorkSrc = G.works[G.activePage][G.activeWork].src;
-        var src = changeImgSize(activeWorkSrc, zoomedImgSize);
+        var activeWork = G.works[G.activePage][G.activeWork];
+        var src = changeImgSize(activeWork.src, zoomedImgSize);
 
         var content = '<img src="'+ src +'">';
         $('.gallery').html(content).css('background', G.backgroundColor);
+
+        var $description = $('.description').html(activeWork.text);
     }
 
     function switchImg(e) {
@@ -50,6 +55,51 @@
 
 
 
+
+
+    function handleTouches() {
+
+        var startX, startY, endX, endY;
+        var tresX = 40, tresY = 40;
+        var $doc = $(document);
+
+        $doc.on('touchstart', touchstart);
+        $doc.on('touchmove', touchmove);
+        $doc.on('touchend', touchend);
+
+        function touchstart(e) {
+            t = e.originalEvent.touches[0];
+            startX = t.screenX;
+            startY = t.screenY;
+        }
+        function touchmove(e) {
+            t = e.originalEvent.touches[0];
+            endX = t.screenX;
+            endY = t.screenY;
+        }
+        function touchend(e) {
+            var distX = endX - startX;
+            var distY = endY - startY;
+
+            if (distX > tresX) moveHorizon(true);
+            if (distX < tresX * -1) moveHorizon(false);
+
+            if (distY > tresY) moveVert(true);
+            if (distY < tresY * -1) moveVert(false);
+
+
+            $('.description').html(window.pageYOffset +'<br>'+ distX +'<br>'+ distY);
+        }
+
+        function moveHorizon(isRight) {
+            if (isRight) console.log('right');
+            else console.log('left');
+        }
+        function moveVert(isDown) {
+            if (isDown) console.log('down');
+            else console.log('up');
+        }
+    }
 
 
     function readStorage() {
