@@ -43,11 +43,11 @@ html {
     }
     .controls i {
         position: absolute;
-        height: 12vw;
-        width: 12vw;
-        margin-top: -6vw;
+        height: 48px;
+        width: 48px;
+        margin-top: -32px;
         background: #ccc;
-        padding: 3vw;
+        padding: 16px;
         border-radius: 50%;
         opacity: .4;
         cursor: pointer;
