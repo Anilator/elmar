@@ -65,6 +65,7 @@
 
         var startX, startY, endX, endY;
         var tresX = 64, tresY = 120;
+        var isMulti = false;
         var $doc = $(document);
 
         $doc.on('touchstart', touchstart);
@@ -72,23 +73,26 @@
         $doc.on('touchend', touchend);
 
         function touchstart(e) {
-            t = e.originalEvent.touches[0];
+            t = e.originalEvent.touches;
+            if (t.length > 1) { isMulti = true; return; }
+            else isMulti = false;
+
+            t = t[0];
             startX = t.clientX;
             startY = t.clientY;
         }
-        function touchmove(e) {
-            // console.log(e.originalEvent.touches[0]);
-        }
+        function touchmove(e) {}
         function touchend(e) {
+            if (isMulti) return;
             var t = e.originalEvent.changedTouches[0];
-            if (e.originalEvent.changedTouches.length > 1) retutn;
 
-            console.log(t);
             endX = t.clientX;
             endY = t.clientY;
 
-            var distX = endX - startX;
-            var distY = endY - startY;
+            var dirX = endX > startX ? true : false;
+            var dirY = endY > startY ? true : false;
+            var distX = Math.abs(endX - startX);
+            var distY = Math.abs(endY - startY);
 
 
             if (distX > tresX) moveHorizon(true);
