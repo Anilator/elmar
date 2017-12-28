@@ -95,8 +95,19 @@
             var distY = Math.abs(endY - startY);
 
 
-            if (distX > tresX) moveHorizon(true);
-            if (distX < tresX * -1) moveHorizon(false);
+            if (distX > distY) {
+                if (distX > tresX) {
+                    if (dirX)
+                        moveHorizon(true);
+                    else
+                        moveHorizon(false);
+                }
+            } else if (distY > tresY) {
+                if (dirY)
+                    moveVert(true);
+                else
+                    moveVert(false);
+            }
 
             if (distY > tresY) moveVert(true);
             if (distY < tresY * -1) moveVert(false);
