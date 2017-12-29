@@ -126,7 +126,10 @@ function readStorage() {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
                 src = changeImgSize(work.src, heroImgSize);
-                content = '<div class="gallery__hero"><img src="'+ src +'" class="zoom"></div>' + content;
+                content =
+                    '<div class="gallery__hero">'+
+                        '<img src="'+ src +'" class="zoom" data-i="'+ i +'">'+
+                    '</div>' + content;
             } else {
                 src = changeImgSize(work.src, thumbImgSize);
                 content +=
