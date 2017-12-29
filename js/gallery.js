@@ -65,7 +65,6 @@
 
 
 
-
     function handleTouches() {
 
         var startX, startY, endX, endY;
