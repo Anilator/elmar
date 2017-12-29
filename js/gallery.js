@@ -26,7 +26,6 @@
         switchImg(direction);
     }
 
-
     function switchImg(direction) {
         if (direction == 'next') { // right
             if (G.activeWork < G.works[G.activePage].length - 1)
@@ -38,6 +37,7 @@
 
         updateControls();
         showZoomedImg();
+        saveToStorage();
     }
 
     function updateControls() {
@@ -62,7 +62,6 @@
 
         var $description = $('.description').html(activeWork.text);
     }
-
 
 
     function handleTouches() {
@@ -125,22 +124,30 @@
         }
     }
 
-    function readStorage() {
-        var data = {};
-        try {
-            data = JSON.parse(window.localStorage.G);
-        } catch (e) {
-            console.warn(e);
-            alert('Zoom is not working on your device');
-            return false;
+
+    /* common */
+        function changeImgSize(src, size) {
+            var srcSplitted = src.split('/');
+
+            srcSplitted[7] = 's' + size;
+
+            return srcSplitted.join('/');
         }
-        return data;
-    }
-    function changeImgSize(src, size) {
-        var srcSplitted = src.split('/');
-
-        srcSplitted[7] = 's' + size;
-
-        return srcSplitted.join('/');
-    }
+        function readStorage() {
+            var data = {};
+            try {
+                data = JSON.parse(window.localStorage.G);
+            } catch (e) {
+                console.warn(e);
+                alert('Zoom is not working on your device');
+                return false;
+            }
+            return data;
+        }
+        function saveToStorage() {
+            try {
+                window.localStorage.G = JSON.stringify(G);
+            }
+            catch (e) { console.warn(e); }
+        }
 })();

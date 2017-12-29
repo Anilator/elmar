@@ -1,31 +1,17 @@
-window.G = readStorage();
-if (!G) {
-    G = {
-        works: {},
-        activePage: 'drawing',
-        activeWork: '0',
-    };
-}
-
-function readStorage() {
-    var data = {};
-    try {
-        if (!window.localStorage.G) return false;
-        data = JSON.parse(window.localStorage.G);
-        if (!data.works) return false;
-    } catch (e) {
-        console.warn(e);
-        // alert('Zoom is not working on your device');
-        return false;
-    }
-    return data;
-}
-
-
 ;(function start() {
+    window.G = readStorage();
+    if (!G) {
+        G = {
+            works: {},
+            activePage: 'drawing',
+            activeWork: '0',
+        };
+    }
+
+
+    // debugger;
     checkForMobile();
     initPages();
-    // debugger;
     getWorks();
 
 
@@ -163,6 +149,20 @@ function readStorage() {
         location.href = galleryPath.join('/');
     }
 
+    /* common */
+    function readStorage() {
+        var data = {};
+        try {
+            if (!window.localStorage.G) return false;
+            data = JSON.parse(window.localStorage.G);
+            if (!data.works) return false;
+        } catch (e) {
+            console.warn(e);
+            // alert('Zoom is not working on your device');
+            return false;
+        }
+        return data;
+    }
     function saveToStorage() {
         try {
             window.localStorage.G = JSON.stringify(G);
