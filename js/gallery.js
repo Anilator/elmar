@@ -9,14 +9,19 @@
         updateControls();
         showZoomedImg();
 
-        $('.controls').on('click', 'i', handleControls);
         handleTouches();
+        $('.controls').on('click', 'i', handleControls);
     }
 
 
     function handleControls(e) {
         var $btn = $(e.currentTarget);
         var direction = $btn.data('dir');
+
+        if (direction == 'close') {
+            history.back();
+            return;
+        }
 
         switchImg(direction);
     }

@@ -126,11 +126,11 @@ function readStorage() {
             if (work.heroImage) {
                 G.backgroundColor = work.backgroundColor;
                 src = changeImgSize(work.src, heroImgSize);
-                content = '<div class="gallery__hero"><img src="'+ src +'"></div>' + content;
+                content = '<div class="gallery__hero"><img src="'+ src +'" class="zoom"></div>' + content;
             } else {
                 src = changeImgSize(work.src, thumbImgSize);
                 content +=
-                    '<div class="gallery__thumb" data-i="'+ i +'">'+
+                    '<div class="gallery__thumb zoom" data-i="'+ i +'">'+
                         '<div class="gallery__thumb_cont">'+
                             '<img src="'+ src +'">'+
                         '</div>'+
@@ -146,7 +146,7 @@ function readStorage() {
 
         $gallery.html(content).css('background', G.backgroundColor);
 
-        $gallery.on('click', '.gallery__thumb', zoomImg);
+        $gallery.on('click', '.zoom', zoomImg);
     }
 
     function zoomImg(e) {
