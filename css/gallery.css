@@ -1,11 +1,12 @@
 .gallery {
+    min-height: 90%;
     padding-top: 4px;
     width: 100%;
 
     text-align: center;
 
+    background-image: url(loader.svg);
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center center;
 }
 .gallery img {

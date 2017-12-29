@@ -57,7 +57,7 @@
         var src = changeImgSize(activeWork.src, zoomedImgSize);
 
         var content = '<img src="'+ src +'">';
-        $('.gallery').html(content).css('background-image', 'url('+ activeWork.src +')');
+        $('.gallery').html(content);
         $('html').css('background', G.backgroundColor);
 
         var $description = $('.description').html(activeWork.text);
