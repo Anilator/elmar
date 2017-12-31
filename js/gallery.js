@@ -22,10 +22,12 @@
         var activeWork = G.works[G.activePage][G.activeWork];
         var src = changeImgSize(activeWork.src, zoomedImgSize);
 
-        var content = '<img src="'+ src +'">';
-        $('.gallery').html(content);
+        var img = '<img src="'+ src +'">';
+        $('.gallery').html(img);
 
-        description = '<h2>'+ activeWork.title +'<h2> <p>'+ activeWork.text +'</p>';
+        var description =
+            '<h2>'+ activeWork.title +'</h2>'+
+            '<p>'+ activeWork.text +'</p>';
         $('.description').html(description);
 
         updateControls();
