@@ -26,7 +26,7 @@
         $('.gallery').html(content);
 
         description = '<h2>'+ activeWork.title +'<h2> <p>'+ activeWork.text +'</p>';
-        $('.description').html(activeWork.text);
+        $('.description').html(description);
 
         updateControls();
     }
@@ -45,6 +45,7 @@
     function handleKeys(e) {
         if (e.key == "ArrowLeft") switchImg('prev');
         if (e.key == "ArrowRight") switchImg('next');
+        if (e.key == "Escape") history.back();
     }
     function handleTouches() {
 

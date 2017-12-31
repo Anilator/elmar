@@ -22,6 +22,9 @@
     text-align: center;
     background: #eee;
 }
+.description h2 {
+    font-weight: bold;
+}
 
 .controls { display: none; }
 
