@@ -25,6 +25,9 @@
 .description h2 {
     font-weight: bold;
 }
+.description p {
+    margin: 0;
+}
 
 .controls { display: none; }
 
