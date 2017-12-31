@@ -67,7 +67,7 @@
     .gallery img {
         cursor: zoom-in;
     }
-    .zoomed {
+    .gallery .zoomed {
         max-height: none;
         cursor: zoom-out;
     }
