@@ -6,13 +6,30 @@
     window.G = readStorage();
     if (window.G) {
 
-        updateControls();
-        showZoomedImg();
+        loadImg();
 
         handleTouches();
+        $(document).keyup(handleKeys);
         $('.controls').on('click', 'i', handleControls);
+        $('.gallery').on('click', 'img', zoomImg);
+
+        $('html').css('background', G.backgroundColor);
     }
 
+
+    function loadImg() {
+
+        var activeWork = G.works[G.activePage][G.activeWork];
+        var src = changeImgSize(activeWork.src, zoomedImgSize);
+
+        var content = '<img src="'+ src +'">';
+        $('.gallery').html(content);
+
+        description = '<h2>'+ activeWork.title +'<h2> <p>'+ activeWork.text +'</p>';
+        $('.description').html(activeWork.text);
+
+        updateControls();
+    }
 
     function handleControls(e) {
         var $btn = $(e.currentTarget);
@@ -25,45 +42,10 @@
 
         switchImg(direction);
     }
-
-    function switchImg(direction) {
-        if (direction == 'next') { // right
-            if (G.activeWork < G.works[G.activePage].length - 1)
-                G.activeWork++;
-        } else { // left
-            if (G.activeWork)
-                G.activeWork--;
-        }
-
-        updateControls();
-        showZoomedImg();
-        saveToStorage();
+    function handleKeys(e) {
+        if (e.key == "ArrowLeft") switchImg('prev');
+        if (e.key == "ArrowRight") switchImg('next');
     }
-
-    function updateControls() {
-        var $left = $('.controls i[data-dir="prev"]').css('display', '');
-        var $right = $('.controls i[data-dir="next"]').css('display', '');
-        if (G.activeWork) {
-            if (G.activeWork >= G.works[G.activePage].length - 1)
-                $right.css('display', 'none');
-        } else {
-            $left.css('display', 'none');
-        }
-    }
-
-    function showZoomedImg() {
-
-        var activeWork = G.works[G.activePage][G.activeWork];
-        var src = changeImgSize(activeWork.src, zoomedImgSize);
-
-        var content = '<img src="'+ src +'">';
-        $('.gallery').html(content);
-        $('html').css('background', G.backgroundColor);
-
-        var $description = $('.description').html(activeWork.text);
-    }
-
-
     function handleTouches() {
 
         var startX, startY, endX, endY;
@@ -122,6 +104,33 @@
                 history.back();
             } else {}
         }
+    }
+
+    function switchImg(direction) {
+        if (direction == 'next') { // right
+            if (G.activeWork < G.works[G.activePage].length - 1)
+                G.activeWork++;
+        } else { // left
+            if (G.activeWork)
+                G.activeWork--;
+        }
+
+        loadImg();
+        saveToStorage();
+    }
+    function updateControls() {
+        var $left = $('.controls i[data-dir="prev"]').css('display', '');
+        var $right = $('.controls i[data-dir="next"]').css('display', '');
+        if (G.activeWork) {
+            if (G.activeWork >= G.works[G.activePage].length - 1)
+                $right.css('display', 'none');
+        } else {
+            $left.css('display', 'none');
+        }
+    }
+
+    function zoomImg(e) {
+        $(e.target).toggleClass('zoomed');
     }
 
 

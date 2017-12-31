@@ -11,6 +11,7 @@
 .gallery img {
     max-width: 100%;
     max-height: 100%;
+    max-height: 100vh;
     vertical-align: middle;
 }
 
@@ -61,5 +62,13 @@
         top: 40px;
         right: 6px;
         font-size: 40px;
+    }
+
+    .gallery img {
+        cursor: zoom-in;
+    }
+    .zoomed {
+        max-height: none;
+        cursor: zoom-out;
     }
 }
