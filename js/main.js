@@ -73,6 +73,7 @@
 
                     work.src = post.content.match(/src\s*=\s*["']([^"']+)["']/)[1];
                     work.text = post.content.replace(/<a.*?<\/a>/, '');
+                    work.text = work.text.replace(/<img.*?\/>/, '');
                     work.title = post.title;
 
                     G.works[label] = G.works[label] ? G.works[label] : [];

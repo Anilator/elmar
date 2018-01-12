@@ -113,23 +113,27 @@
         if (direction == 'next') { // right
             if (G.activeWork < G.works[G.activePage].length - 1)
                 G.activeWork++;
+            else if (G.activeWork < G.works[G.activePage].length)
+                G.activeWork = 0;
         } else { // left
-            if (G.activeWork)
+            if (G.activeWork > 0)
                 G.activeWork--;
+            else
+                G.activeWork = G.works[G.activePage].length - 1;
         }
 
         loadImg();
         saveToStorage();
     }
     function updateControls() {
-        var $left = $('.controls i[data-dir="prev"]').css('display', '');
-        var $right = $('.controls i[data-dir="next"]').css('display', '');
-        if (G.activeWork) {
-            if (G.activeWork >= G.works[G.activePage].length - 1)
-                $right.css('display', 'none');
-        } else {
-            $left.css('display', 'none');
-        }
+        // var $left = $('.controls i[data-dir="prev"]').css('display', '');
+        // var $right = $('.controls i[data-dir="next"]').css('display', '');
+        // if (G.activeWork) {
+        //     if (G.activeWork >= G.works[G.activePage].length - 1)
+        //         $right.css('display', 'none');
+        // } else {
+        //     $left.css('display', 'none');
+        // }
     }
 
     function zoomImg(e) {
